@@ -1,0 +1,1 @@
+{"budgets":[512,2048,4096],"domains":["software-operations","research-notes","customer-support","logistics"],"evidence_class":"public-development","families":[],"id":"portable-evidence-v1","input_profile":"documents","mode":"evidence","schema":"cgb.suite.v1","workload":"../datasets/synthetic/portable-evidence-workload.json"}

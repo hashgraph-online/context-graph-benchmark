@@ -1,0 +1,103 @@
+{
+  "schema": "cgb.reference-study-design.v1",
+  "source_record_sha256": "220ad9444993723545b9e9ee077be56b5885ee6ea1bb05fb4f4951002c3f1f19",
+  "registered_policy_sha256": "6631ea7dd65b6a22d462f87be01b184c5eb8653d6b171f22c0cf2e16f87d2454",
+  "created_utc": "2026-11-20T01:00:50.711336+00:00",
+  "engine_order": [
+    "cigar",
+    "networkx",
+    "lean-ctx"
+  ],
+  "evaluator_sha256": "7cd174236d74b9e91e9d0cb3611536ef56ac3b794f22e49fd67f08906bd723d9",
+  "library_bindings": {
+    "cigar": {
+      "bundled_worker_sha256": "7dee70df29be35cb5a39afd897a87658bce2e58dc206e8649351042f19cb9282",
+      "descriptor_sha256": "b04c4c64effc36424e96b43842d95fbaf99f71359f24e9ffd8881dad58522bd8",
+      "distribution": "hol-cigar",
+      "matched_wheel_files": 47,
+      "package_source_commit": "4637083e5ac1774bfe057d59a8642eca6f29391c",
+      "python_distribution_sha256": "5b4b1bf3a2003090fa3be022d4c9cf1b99ffb15122e0b340e940ddaa838c3a76",
+      "release_manifest_sha256": "517fcd49a0cd21ed3b50ce43b46076f2e65e2173766ce1a2ab2e7c0f2cd64ad8",
+      "version": "0.14.2"
+    },
+    "lean-ctx": {
+      "descriptor_sha256": "ee198aa9fa36e77947cabf8834f3fb79e3569c9dcf03390615c18236d6349bcd",
+      "executable_sha256": "684f57dae2f5776dde14effe3e45031d55953eb4540f516197008e47181ad37c",
+      "version": "3.12.4"
+    },
+    "networkx": {
+      "dependencies": {},
+      "descriptor_sha256": "62002afcd73c393a887c5213a5906e0553e93668a2b1ccb2ba8b03f4d588cec4",
+      "identical_library_files": 606,
+      "normalized_library_sha256": "28058265b9d250b1465b1b7961fc195f06b59ce4e847eaf2e1938c75d4c04d2d",
+      "version": "3.7"
+    }
+  },
+  "method": {
+    "agents": 12,
+    "assurance": true,
+    "assurance_interval_seconds": 300,
+    "baseline": "networkx",
+    "budget": 1024,
+    "cadence_seconds": 5,
+    "control_seconds": 120,
+    "engines": [
+      "cigar",
+      "networkx",
+      "lean-ctx"
+    ],
+    "hours": 1,
+    "isolation": "macos",
+    "model_interval_seconds": 180,
+    "mutation_seconds": 60,
+    "pilot_seconds": null,
+    "reader_limits": {
+      "assurance_seconds": 120,
+      "id": "portable-reader-deadlines.v2",
+      "mlx_usage_grace_seconds": 120,
+      "routine_seconds": 30
+    },
+    "restart_seconds": 900,
+    "seconds": 3600,
+    "seed": 41
+  },
+  "model_inventory_sha256": "4df6014d1e9e55f5aed6de25d8503ab303b4e3bc8703afc0c45154dd0561dda0",
+  "pilot_id": "20261120-release-three-engines-pilot-01",
+  "pilot_scope": "Diagnostic only, outside all study denominators.",
+  "pilot_seconds_per_engine": 90,
+  "primary_attempts": 1,
+  "producer_wheel_sha256": "8b71245e550987221169e5fdf6942922b4bfe82426d7c36b3add2f34799f70ca",
+  "query_budgets": [
+    512,
+    2048,
+    4096
+  ],
+  "query_profiles": [
+    "evidence",
+    "graph"
+  ],
+  "query_replicates": 1,
+  "reader": {
+    "backend": "mlx",
+    "context_window": 262144,
+    "model": "Qwen3.8-27B-8bit",
+    "revision": "mounted-815b83c0",
+    "settings": {
+      "enable_thinking": false,
+      "max_tokens": 256,
+      "temperature": 0,
+      "top_p": 1.0
+    }
+  },
+  "reader_limits": {
+    "assurance_seconds": 120,
+    "id": "portable-reader-deadlines.v2",
+    "mlx_usage_grace_seconds": 120,
+    "routine_seconds": 30
+  },
+  "source": "d0e955a3d4d951b7d31cc1854edab4dfd7ba1e2d",
+  "study_id": "20261120-release-three-engines-1h-01",
+  "verified_model_bytes": 29531519835,
+  "verified_model_files": 18,
+  "resource_order": "Sequential engine execution on one shared host."
+}

@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":["update","delete","set_scope","handoff"],"command":["{python}","-m","cgb.adapters","--engine","empty"],"configuration":"empty.v1","deployment":"local","engine":"empty","id":"empty","schema":"cgb.adapter-descriptor.v1","version":"1"}

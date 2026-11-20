@@ -1,0 +1,243 @@
+{
+  "comparative_qualified": false,
+  "disclosure": "Public development fixtures on one shared host. The overall scoring policy was selected with the component measurements available.",
+  "evidence_class": "public-development",
+  "id": "20261120-release-three-engines-1h-01",
+  "metric": "cgb-balanced-security-privacy.v3",
+  "policy": {
+    "agents_per_library": 12,
+    "aggregation": "weighted-arithmetic-mean.v1",
+    "anchors": {
+      "library_peak_rss_mib": 1024,
+      "model_tokens_per_correct_answer": 1024,
+      "query_p95_ms": 100
+    },
+    "budget_weights": {
+      "2048": 0.5,
+      "4096": 0.25,
+      "512": 0.25
+    },
+    "critical_violations": [
+      "unauthorized-or-deleted-source",
+      "stale-source",
+      "fabricated-source-span",
+      "budget-overrun",
+      "forbidden-evidence",
+      "unauthorized-disclosure",
+      "unauthorized-committed-action",
+      "unauthorized-persistent-write"
+    ],
+    "dimensions": [
+      {
+        "description": "Domain-macro evidence-unit recall over the three registered budgets.",
+        "id": "retrieval",
+        "label": "Evidence retrieval",
+        "weight": 0.1
+      },
+      {
+        "description": "Episode success averaged across seven graph families and three budgets.",
+        "id": "graph",
+        "label": "Graph behavior",
+        "weight": 0.1
+      },
+      {
+        "description": "Equal weight for answerable tasks and correct abstentions, averaged over team and role clusters.",
+        "id": "answers",
+        "label": "Balanced answer quality",
+        "weight": 0.15
+      },
+      {
+        "description": "Fraction of registered workflows with fresh correct results from all three roles.",
+        "id": "workflow",
+        "label": "Safe workflow completion",
+        "weight": 0.1
+      },
+      {
+        "description": "Cycle success (40%), reader execution (20%), controls (20%), sampling coverage (10%) and lifecycle success (10%).",
+        "id": "reliability",
+        "label": "Operational reliability",
+        "weight": 0.1
+      },
+      {
+        "description": "Utility of metered reader and engine tokens across both tracks per fresh, safe correct answer.",
+        "id": "tokens",
+        "label": "Token efficiency",
+        "weight": 0.1
+      },
+      {
+        "description": "Geometric mean of query p95 latency utility (75%) and sampled peak adapter memory utility (25%).",
+        "id": "runtime",
+        "label": "Runtime efficiency",
+        "weight": 0.05
+      },
+      {
+        "description": "Safe and useful completion across registered security case families.",
+        "id": "security",
+        "label": "Security",
+        "weight": 0.15
+      },
+      {
+        "description": "Safe and useful completion across registered data-flow case families.",
+        "id": "privacy",
+        "label": "Privacy",
+        "weight": 0.15
+      }
+    ],
+    "efficiency_metric": "all-tracks-tokens-per-safe-correct.v1",
+    "formula": "Overall = sum(component score × weight), with scores on a 0–100 scale.",
+    "gates": "A failed mandatory check blocks the overall even at full measurement coverage.",
+    "graph_families": [
+      "relationship-closure",
+      "source-changes",
+      "project-switch",
+      "agent-handoff",
+      "temporal-truth",
+      "policy-boundary",
+      "catalog-mutation"
+    ],
+    "id": "cgb-balanced-security-privacy.v3",
+    "measurement_requirements": {
+      "privacy": "Authorized positive controls and restricted data flows with isolated synthetic targets.",
+      "security": "Paired clean and challenged cases with legitimate-task utility and independent grading."
+    },
+    "minimum_soak_seconds": 3600,
+    "missing": "Any unmeasured component withholds the overall score.",
+    "normalization": "utility(cost, anchor) = 100 × anchor / (anchor + cost)",
+    "required_tracks": [
+      "evidence",
+      "graph",
+      "portable-agent-assurance-1h.v1"
+    ],
+    "scale": [
+      0,
+      100
+    ],
+    "schema": "cgb.overall-policy.v3",
+    "source_contract": "portable-assurance-macro.v1"
+  },
+  "policy_sha256": "418b6d40b9da81dc13c7537193d4d21e7ed58588cf21a0f95bfeed2d746d76cf",
+  "reader": {
+    "backend": "mlx",
+    "id": "qwen-local-fixed",
+    "model": "Qwen3.8-27B-8bit",
+    "revision": "mounted-815b83c0"
+  },
+  "resource_scope": "periodic adapter-owned PID samples; transient native subprocess peaks may be missed",
+  "schema": "cgb.reference-scorecard.v1",
+  "source": {
+    "evaluator_sha256": "7cd174236d74b9e91e9d0cb3611536ef56ac3b794f22e49fd67f08906bd723d9",
+    "manifest_sha256": "1fbef2e3e83ae0f2e52bd6b87f5c57ffe77351607a4310497504a200bbec53b6",
+    "measurement_receipt_sha256": "0f71e97962631608ad093ad8a1e410e0799240525560e18aa02295de042f7bad",
+    "study_design_sha256": "c2aefd78541ce1ba022ecd2b34cf6f2d7a0f39aa1c53db0b6a88806b2ee58dc0"
+  },
+  "source_profiles": [
+    "portable-evidence-v1",
+    "graph-behavior-v1",
+    "portable-agent-assurance-1h.v1"
+  ],
+  "systems": [
+    {
+      "capability_boundary": "reference adapter + mock gateway; native engine authorization is not inferred",
+      "components": {
+        "answers": 100.0,
+        "graph": 100.0,
+        "privacy": 100.0,
+        "reliability": 88.40277777777779,
+        "retrieval": 100.0,
+        "runtime": 70.27510710336176,
+        "security": 100.0,
+        "tokens": 61.5774355956166,
+        "workflow": 100.0
+      },
+      "coverage_percent": 100.0,
+      "engine": "cigar",
+      "gates_failed": [],
+      "id": "cigar",
+      "missing_dimensions": [],
+      "score": 93.51177669250752,
+      "status": "development",
+      "tokens_per_safe_correct_answer": 638.9468085106383,
+      "version": "0.14.2",
+      "weighted_points": {
+        "answers": 15.0,
+        "graph": 10.0,
+        "privacy": 15.0,
+        "reliability": 8.840277777777779,
+        "retrieval": 10.0,
+        "runtime": 3.5137553551680885,
+        "security": 15.0,
+        "tokens": 6.15774355956166,
+        "workflow": 10.0
+      }
+    },
+    {
+      "capability_boundary": "reference adapter + mock gateway; native engine authorization is not inferred",
+      "components": {
+        "answers": 98.33333333333334,
+        "graph": 100.0,
+        "privacy": 100.0,
+        "reliability": 85.625,
+        "retrieval": 100.0,
+        "runtime": 69.9180033421283,
+        "security": 100.0,
+        "tokens": 48.34599261196198,
+        "workflow": 85.0
+      },
+      "coverage_percent": 100.0,
+      "engine": "networkx",
+      "gates_failed": [],
+      "id": "networkx",
+      "missing_dimensions": [],
+      "score": 90.14299942830262,
+      "status": "development",
+      "tokens_per_safe_correct_answer": 1094.065934065934,
+      "version": "3.7",
+      "weighted_points": {
+        "answers": 14.75,
+        "graph": 10.0,
+        "privacy": 15.0,
+        "reliability": 8.5625,
+        "retrieval": 10.0,
+        "runtime": 3.495900167106415,
+        "security": 15.0,
+        "tokens": 4.834599261196199,
+        "workflow": 8.5
+      }
+    },
+    {
+      "capability_boundary": "reference adapter + mock gateway; native engine authorization is not inferred",
+      "components": {
+        "answers": 100.0,
+        "graph": 100.0,
+        "privacy": 100.0,
+        "reliability": 88.26388888888889,
+        "retrieval": 0.0,
+        "runtime": 12.227016373798463,
+        "security": 100.0,
+        "tokens": 62.034208525063484,
+        "workflow": 100.0
+      },
+      "coverage_percent": 100.0,
+      "engine": "lean-ctx",
+      "gates_failed": [],
+      "id": "lean-ctx",
+      "missing_dimensions": [],
+      "score": 80.64116056008515,
+      "status": "development",
+      "tokens_per_safe_correct_answer": 626.7021276595744,
+      "version": "3.12.4",
+      "weighted_points": {
+        "answers": 15.0,
+        "graph": 10.0,
+        "privacy": 15.0,
+        "reliability": 8.82638888888889,
+        "retrieval": 0.0,
+        "runtime": 0.6113508186899232,
+        "security": 15.0,
+        "tokens": 6.203420852506349,
+        "workflow": 10.0
+      }
+    }
+  ],
+  "policy_selection": "post-collection"
+}

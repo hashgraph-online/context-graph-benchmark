@@ -1,0 +1,1 @@
+{"budgets":[512,2048,4096],"domains":["graph"],"evidence_class":"smoke","families":["relationship-closure","source-changes","project-switch","agent-handoff","temporal-truth","policy-boundary","catalog-mutation"],"id":"graph-behavior-v1","input_profile":"supplied-relationships","mode":"graph","schema":"cgb.suite.v1","workload":"../datasets/synthetic/graph-behavior-workload.json"}

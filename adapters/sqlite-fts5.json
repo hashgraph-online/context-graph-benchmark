@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":["update","delete","set_scope","handoff"],"command":["{python}","-m","cgb.adapters","--engine","sqlite-fts5"],"configuration":"sqlite-fts5.v1","deployment":"local","engine":"sqlite-fts5","id":"sqlite-fts5","schema":"cgb.adapter-descriptor.v1","version":"runtime-described"}

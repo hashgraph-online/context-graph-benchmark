@@ -1,0 +1,30 @@
+name: Test pack proposal
+description: Propose a declarative test or reviewed execution driver
+title: "[Pack] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Task, boundary and threat assumptions
+      description: What useful work should continue and what attacker outcome should fail?
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Pack / driver / grader contract
+      description: Version, namespace, capabilities, permissions, bounds, denominators and unknown outcomes. New code needs a reviewed source PR.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Provenance, conformance and replay
+      description: License, affiliation, exposure, positive/negative controls and sanitized evidence. Do not paste private targets or raw local bundles.
+    validations:
+      required: true
+  - type: textarea
+    id: promotion
+    attributes:
+      label: Experimental status and review needs
+      description: New packs stay experimental. Core promotion needs a separate RFC and unaffiliated review.

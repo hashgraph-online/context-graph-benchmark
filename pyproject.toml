@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling==1.33.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "context-graph-benchmark"
+version = "0.1.0"
+description = "A benchmark SDK for context retrieval, graph behavior and agent workflows"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = ["jsonschema==4.26.0", "regex==2026.11.7"]
+
+[project.optional-dependencies]
+graphs = ["networkx==3.7"]
+
+[project.scripts]
+cgb = "cgb.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cgb"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"third-party/tiktoken-LICENSE" = "cgb/data/licenses/tiktoken-LICENSE"
+
+"adapters/bm25.json" = "cgb/data/examples/adapters/bm25.json"
+"adapters/empty.json" = "cgb/data/examples/adapters/empty.json"
+"adapters/networkx.json" = "cgb/data/examples/adapters/networkx.json"
+"adapters/recent-window.json" = "cgb/data/examples/adapters/recent-window.json"
+"adapters/sqlite-fts5.json" = "cgb/data/examples/adapters/sqlite-fts5.json"
+"datasets/synthetic/graph-behavior-labels.json" = "cgb/data/examples/datasets/synthetic/graph-behavior-labels.json"
+"datasets/synthetic/graph-behavior-workload.json" = "cgb/data/examples/datasets/synthetic/graph-behavior-workload.json"
+"datasets/synthetic/portable-evidence-labels.json" = "cgb/data/examples/datasets/synthetic/portable-evidence-labels.json"
+"datasets/synthetic/portable-evidence-workload.json" = "cgb/data/examples/datasets/synthetic/portable-evidence-workload.json"
+"datasets/synthetic/smoke-labels.json" = "cgb/data/examples/datasets/synthetic/smoke-labels.json"
+"datasets/synthetic/smoke-workload.json" = "cgb/data/examples/datasets/synthetic/smoke-workload.json"
+"suites/graph-behavior-v1.json" = "cgb/data/examples/suites/graph-behavior-v1.json"
+"suites/portable-evidence-v1.json" = "cgb/data/examples/suites/portable-evidence-v1.json"
+"suites/smoke-v1.json" = "cgb/data/examples/suites/smoke-v1.json"
+"profiles/portable-agent-1h.v1.json" = "cgb/data/examples/profiles/portable-agent-1h.v1.json"
+"profiles/portable-agent-24h.v1.json" = "cgb/data/examples/profiles/portable-agent-24h.v1.json"
+"profiles/portable-agent-assurance-1h.v1.json" = "cgb/data/examples/profiles/portable-agent-assurance-1h.v1.json"
+"profiles/portable-agent-assurance-24h.v1.json" = "cgb/data/examples/profiles/portable-agent-assurance-24h.v1.json"
+
+[tool.hatch.build]
+dev-mode-dirs = ["src"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/cgb", "adapters/*.json", "datasets/synthetic/*.json", "suites/*.json", "profiles/*.json",
+  "schemas", "requirements", "test-packs", "examples", "tests", "scripts", "docs", "third-party",
+  "pyproject.toml", "LICENSE", "NOTICE", "CITATION.cff", "README.md", "CHANGELOG.md",
+  "CONTRIBUTING.md", "GOVERNANCE.md", "CODE_OF_CONDUCT.md", "SECURITY.md",
+]

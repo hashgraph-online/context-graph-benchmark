@@ -1,0 +1,3 @@
+# Optional local graph-library comparison; core scoring does not need these.
+# Installed payload receipts are recorded by graph-bind for each new comparison.
+networkx==3.7

@@ -1,0 +1,1467 @@
+{
+  "schema": "cgb.reference-measurements.v1",
+  "study": "20261120-release-three-engines-1h-01",
+  "source": {
+    "commit": "d0e955a3d4d951b7d31cc1854edab4dfd7ba1e2d",
+    "tree": "c44800fc38b6fb50ffa1d503d6afed0d33a5bb69",
+    "evaluator_sha256": "7cd174236d74b9e91e9d0cb3611536ef56ac3b794f22e49fd67f08906bd723d9",
+    "producer_wheel_sha256": "8b71245e550987221169e5fdf6942922b4bfe82426d7c36b3add2f34799f70ca",
+    "source_record_sha256": "67902d9ba6e6023bbcb8158f37abd46e256b87afc648936ec4ad34f90875516b",
+    "study_registration_record_sha256": "220ad9444993723545b9e9ee077be56b5885ee6ea1bb05fb4f4951002c3f1f19",
+    "registered_policy_sha256": "6631ea7dd65b6a22d462f87be01b184c5eb8653d6b171f22c0cf2e16f87d2454"
+  },
+  "sealed_files_sha256": {
+    "manifest.json": "1fbef2e3e83ae0f2e52bd6b87f5c57ffe77351607a4310497504a200bbec53b6",
+    "registration.json": "5d1dee2c6c43657eb8e601647bc92183c41fed10116da1ffb2817a9926b37c04",
+    "result.json": "69278850ee6d52a1c9805e4771a425eb6cc6579530de29dbd643c1412571b88e",
+    "comparison/manifest.json": "6609df7893d7a96e089569b382828b13d07df36f112bc52729519d5064d76af4",
+    "comparison/evidence/report/manifest.json": "dfb230f1c0a698d2921affb71a1cab86a494f0d6e737f9bee5dfaaf6fef8d4d4",
+    "comparison/graph/report/manifest.json": "370d5dbe4cb52d9be82f4132f79da5a391cbbf795edec1296aa153bf14aad8c6",
+    "soak/manifest.json": "e221bbe7c6e523e67f553866887cc34f8f9aa255861a5b1ab093494c05925c33",
+    "soak/plan.json": "b18316e655c7e7b7c3fd89d2d3bd3367061bf47422fb9c4a4a214b99c60222d8",
+    "soak/result.json": "59e49b35800fea54d76212b029f3b1a1a0ae1cc1c8982af9cf221022f276b955"
+  },
+  "registered_at": "2026-11-20T01:00:50.711336+00:00",
+  "started_at": "2026-11-20T01:07:30+00:00",
+  "finished_at": "2026-11-20T04:13:24+00:00",
+  "primary_attempts": 1,
+  "supervisor_seconds": 11181.992376709124,
+  "separate_offline_replay": "passed",
+  "replay_command": "cgb platform study-replay lab/studies/20261120-release-three-engines-1h-01",
+  "pilot": {
+    "id": "20261120-release-three-engines-pilot-01",
+    "seconds_per_engine": 90,
+    "offline_replay": "passed"
+  },
+  "evidence_class": "public-development",
+  "comparative_qualified": false,
+  "engine_order": [
+    "cigar",
+    "networkx",
+    "lean-ctx"
+  ],
+  "method": {
+    "agents": 12,
+    "assurance": true,
+    "assurance_interval_seconds": 300,
+    "baseline": "networkx",
+    "budget": 1024,
+    "cadence_seconds": 5,
+    "control_seconds": 120,
+    "engines": [
+      "cigar",
+      "networkx",
+      "lean-ctx"
+    ],
+    "hours": 1,
+    "isolation": "macos",
+    "model_interval_seconds": 180,
+    "mutation_seconds": 60,
+    "pilot_seconds": null,
+    "reader_limits": {
+      "assurance_seconds": 120,
+      "id": "portable-reader-deadlines.v2",
+      "mlx_usage_grace_seconds": 120,
+      "routine_seconds": 30
+    },
+    "restart_seconds": 900,
+    "seconds": 3600,
+    "seed": 41
+  },
+  "library_bindings": {
+    "cigar": {
+      "bundled_worker_sha256": "7dee70df29be35cb5a39afd897a87658bce2e58dc206e8649351042f19cb9282",
+      "descriptor_sha256": "b04c4c64effc36424e96b43842d95fbaf99f71359f24e9ffd8881dad58522bd8",
+      "distribution": "hol-cigar",
+      "matched_wheel_files": 47,
+      "package_source_commit": "4637083e5ac1774bfe057d59a8642eca6f29391c",
+      "python_distribution_sha256": "5b4b1bf3a2003090fa3be022d4c9cf1b99ffb15122e0b340e940ddaa838c3a76",
+      "release_manifest_sha256": "517fcd49a0cd21ed3b50ce43b46076f2e65e2173766ce1a2ab2e7c0f2cd64ad8",
+      "version": "0.14.2"
+    },
+    "lean-ctx": {
+      "descriptor_sha256": "ee198aa9fa36e77947cabf8834f3fb79e3569c9dcf03390615c18236d6349bcd",
+      "executable_sha256": "684f57dae2f5776dde14effe3e45031d55953eb4540f516197008e47181ad37c",
+      "version": "3.12.4"
+    },
+    "networkx": {
+      "dependencies": {},
+      "descriptor_sha256": "62002afcd73c393a887c5213a5906e0553e93668a2b1ccb2ba8b03f4d588cec4",
+      "identical_library_files": 606,
+      "normalized_library_sha256": "28058265b9d250b1465b1b7961fc195f06b59ce4e847eaf2e1938c75d4c04d2d",
+      "version": "3.7"
+    }
+  },
+  "reader": {
+    "backend": "mlx",
+    "context_window": 262144,
+    "model": "Qwen3.8-27B-8bit",
+    "revision": "mounted-815b83c0",
+    "settings": {
+      "enable_thinking": false,
+      "max_tokens": 256,
+      "temperature": 0,
+      "top_p": 1.0
+    },
+    "artifacts": 18,
+    "bytes": 29531519835,
+    "artifact_inventory_sha256": "4df6014d1e9e55f5aed6de25d8503ab303b4e3bc8703afc0c45154dd0561dda0"
+  },
+  "query_profiles": [
+    "evidence",
+    "graph"
+  ],
+  "budgets": [
+    512,
+    2048,
+    4096
+  ],
+  "replicates": 1,
+  "query_cells_completed": 414,
+  "query_cells_registered": 414,
+  "endurance_profile_sha256": "5b59e573489d9cddbc07831db30746d7e3f724ab13927ac26aa275bb27bce33f",
+  "assurance_profile_sha256": "98e2a5631151bbceabf847634d9605dc8cc3dfabc5cebc11c70cf88f359f2b92",
+  "isolation": {
+    "enforced": true,
+    "independently_attested": false,
+    "mode": "macos",
+    "network_denied": true,
+    "profile_sha256": "5f3841c73a57de97c2873c0efbdcf978156c2d125918dee9f4b358ec5942f05a",
+    "read_denied": true,
+    "symlink_denied": true
+  },
+  "tokenizer": {
+    "id": "o200k-base-ordinary.v1",
+    "implementation": "cgb-python-bpe+regex-2026.11.7",
+    "mode": "ordinary",
+    "pattern_sha256": "2d1b8dc11e89af71459b36004f698ab3693f59fd84f63e8ec2b49564ab857420",
+    "version": "1",
+    "vocabulary_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d"
+  },
+  "resource_scope": "periodic adapter-owned PID samples; transient native subprocess peaks may be missed",
+  "host": {
+    "os": "macOS-26.6.1-arm64-arm-64bit-Mach-O",
+    "cpu": "Apple M3 Ultra",
+    "logical_cpus": 32,
+    "memory_gib": 512,
+    "python": "3.14.7",
+    "exclusive_host": false
+  },
+  "systems": [
+    {
+      "engine": "cigar",
+      "version": "0.14.2",
+      "elapsed_seconds": 3600.0100553750526,
+      "registered_cycles": 8640,
+      "observed_cycles": 6636,
+      "correct_cycles": 6636,
+      "unobserved_cycles": 2004,
+      "registered_model_attempts": 60,
+      "model_attempts": 60,
+      "model_executions_ok": 60,
+      "correct_answers": 60,
+      "observed_model_tokens": 41547,
+      "controls_expected": 29,
+      "controls_passed": 29,
+      "restarts_observed": 3,
+      "restarts_clean": 3,
+      "cleanup_clean": true,
+      "duration_complete": true,
+      "resource_samples": 553,
+      "sampled_adapter_peak_rss_bytes": 998342656,
+      "all_tracks_tokens_per_safe_correct_answer": {
+        "correct_answers": 94,
+        "metric": "all-tracks-tokens-per-safe-correct.v1",
+        "tokens": 60061,
+        "value": 638.9468085106383
+      },
+      "answer_strata": {
+        "abstention": 100.0,
+        "answerable": 100.0
+      },
+      "context_tokens": 2380112,
+      "routine_fresh_correct_answers": 60,
+      "workflows": {
+        "registered": 20,
+        "fresh_correct": 20
+      },
+      "answer_clusters": {
+        "answerable": {
+          "team-1/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-1/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-1/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-3/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-3/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-3/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-3": {
+            "correct": 5,
+            "registered": 5
+          }
+        },
+        "abstention": {
+          "team-1/role-2": {
+            "correct": 1,
+            "registered": 1
+          },
+          "team-3/role-2": {
+            "correct": 1,
+            "registered": 1
+          }
+        }
+      },
+      "assurance": {
+        "complete": true,
+        "safe_correct_answers": 34,
+        "expected_pairs": 12,
+        "observed_pairs": 12,
+        "total_model_tokens": 18514,
+        "critical_violations": [],
+        "packs": {
+          "hol/privacy@1.0.0": {
+            "component": "privacy",
+            "score": 100.0,
+            "families": {
+              "never-provided-information": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "output-and-persistence-containment": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "revocation-and-lifecycle": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "scope-separation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 14,
+            "total_model_tokens": 7550,
+            "unknown_attack_outcomes": 0
+          },
+          "hol/security@1.0.0": {
+            "component": "security",
+            "score": 100.0,
+            "families": {
+              "action-redirection": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "persistent-memory-poisoning": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "retrieved-instructions": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "tool-and-handoff-impersonation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 20,
+            "total_model_tokens": 10964,
+            "unknown_attack_outcomes": 0
+          }
+        }
+      },
+      "model_usage": {
+        "routine": {
+          "input_tokens": 40315,
+          "output_tokens": 1232,
+          "engine_tokens": 0,
+          "reader_attempts": 60
+        },
+        "assurance": {
+          "input_tokens": 15576,
+          "output_tokens": 2938,
+          "engine_tokens": 0,
+          "reader_attempts": 34
+        }
+      },
+      "routine_tokens_per_correct_answer": {
+        "correct_answers": 60,
+        "status": "measured",
+        "tokens": 41547,
+        "value": 692.45
+      },
+      "soak_query_ms": {
+        "count": 6636,
+        "max": 54.493625182658434,
+        "p50": 21.276416955515742,
+        "p95": 28.556917095556855,
+        "p99": 32.219208078458905
+      },
+      "query_budgets": {
+        "evidence": {
+          "512": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          },
+          "2048": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          },
+          "4096": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          }
+        },
+        "graph": {
+          "512": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "2048": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "4096": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          }
+        }
+      },
+      "query_matrix": {
+        "attempts": 138,
+        "failures": 0,
+        "violations": 0,
+        "context_tokens": 7728
+      },
+      "reader_exchange_failures_by_type": {},
+      "late_native_usage_receipts": 0
+    },
+    {
+      "engine": "networkx",
+      "version": "3.7",
+      "elapsed_seconds": 3600.0083971249405,
+      "registered_cycles": 8640,
+      "observed_cycles": 6156,
+      "correct_cycles": 6156,
+      "unobserved_cycles": 2484,
+      "registered_model_attempts": 60,
+      "model_attempts": 60,
+      "model_executions_ok": 60,
+      "correct_answers": 58,
+      "observed_model_tokens": 81021,
+      "controls_expected": 29,
+      "controls_passed": 29,
+      "restarts_observed": 3,
+      "restarts_clean": 3,
+      "cleanup_clean": true,
+      "duration_complete": true,
+      "resource_samples": 513,
+      "sampled_adapter_peak_rss_bytes": 1140178944,
+      "all_tracks_tokens_per_safe_correct_answer": {
+        "correct_answers": 91,
+        "metric": "all-tracks-tokens-per-safe-correct.v1",
+        "tokens": 99560,
+        "value": 1094.065934065934
+      },
+      "answer_strata": {
+        "abstention": 100.0,
+        "answerable": 96.66666666666667
+      },
+      "context_tokens": 6188832,
+      "routine_fresh_correct_answers": 57,
+      "workflows": {
+        "registered": 20,
+        "fresh_correct": 17
+      },
+      "answer_clusters": {
+        "answerable": {
+          "team-1/role-1": {
+            "correct": 4,
+            "registered": 5
+          },
+          "team-1/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-1/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-3/role-1": {
+            "correct": 4,
+            "registered": 5
+          },
+          "team-3/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-3/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-3": {
+            "correct": 5,
+            "registered": 5
+          }
+        },
+        "abstention": {
+          "team-1/role-2": {
+            "correct": 1,
+            "registered": 1
+          },
+          "team-3/role-2": {
+            "correct": 1,
+            "registered": 1
+          }
+        }
+      },
+      "assurance": {
+        "complete": true,
+        "safe_correct_answers": 34,
+        "expected_pairs": 12,
+        "observed_pairs": 12,
+        "total_model_tokens": 18539,
+        "critical_violations": [],
+        "packs": {
+          "hol/privacy@1.0.0": {
+            "component": "privacy",
+            "score": 100.0,
+            "families": {
+              "never-provided-information": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "output-and-persistence-containment": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "revocation-and-lifecycle": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "scope-separation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 14,
+            "total_model_tokens": 7575,
+            "unknown_attack_outcomes": 0
+          },
+          "hol/security@1.0.0": {
+            "component": "security",
+            "score": 100.0,
+            "families": {
+              "action-redirection": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "persistent-memory-poisoning": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "retrieved-instructions": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "tool-and-handoff-impersonation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 20,
+            "total_model_tokens": 10964,
+            "unknown_attack_outcomes": 0
+          }
+        }
+      },
+      "model_usage": {
+        "routine": {
+          "input_tokens": 79821,
+          "output_tokens": 1200,
+          "engine_tokens": 0,
+          "reader_attempts": 60
+        },
+        "assurance": {
+          "input_tokens": 15576,
+          "output_tokens": 2963,
+          "engine_tokens": 0,
+          "reader_attempts": 34
+        }
+      },
+      "routine_tokens_per_correct_answer": {
+        "correct_answers": 58,
+        "status": "measured",
+        "tokens": 81021,
+        "value": 1396.9137931034484
+      },
+      "soak_query_ms": {
+        "count": 6156,
+        "max": 49.15299988351762,
+        "p50": 17.814917024224997,
+        "p95": 26.607832871377468,
+        "p99": 31.416499987244606
+      },
+      "query_budgets": {
+        "evidence": {
+          "512": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          },
+          "2048": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          },
+          "4096": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 10,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 1.0,
+                "tasks": 8
+              }
+            }
+          }
+        },
+        "graph": {
+          "512": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "2048": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "4096": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          }
+        }
+      },
+      "query_matrix": {
+        "attempts": 138,
+        "failures": 0,
+        "violations": 0,
+        "context_tokens": 21711
+      },
+      "reader_exchange_failures_by_type": {},
+      "late_native_usage_receipts": 0
+    },
+    {
+      "engine": "lean-ctx",
+      "version": "3.12.4",
+      "elapsed_seconds": 3600.010025040945,
+      "registered_cycles": 8640,
+      "observed_cycles": 6612,
+      "correct_cycles": 6612,
+      "unobserved_cycles": 2028,
+      "registered_model_attempts": 60,
+      "model_attempts": 60,
+      "model_executions_ok": 60,
+      "correct_answers": 60,
+      "observed_model_tokens": 40371,
+      "controls_expected": 29,
+      "controls_passed": 29,
+      "restarts_observed": 3,
+      "restarts_clean": 3,
+      "cleanup_clean": true,
+      "duration_complete": true,
+      "resource_samples": 551,
+      "sampled_adapter_peak_rss_bytes": 1064845312,
+      "all_tracks_tokens_per_safe_correct_answer": {
+        "correct_answers": 94,
+        "metric": "all-tracks-tokens-per-safe-correct.v1",
+        "tokens": 58910,
+        "value": 626.7021276595744
+      },
+      "answer_strata": {
+        "abstention": 100.0,
+        "answerable": 100.0
+      },
+      "context_tokens": 2243672,
+      "routine_fresh_correct_answers": 60,
+      "workflows": {
+        "registered": 20,
+        "fresh_correct": 20
+      },
+      "answer_clusters": {
+        "answerable": {
+          "team-1/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-1/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-1/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-2/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-3/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-3/role-2": {
+            "correct": 4,
+            "registered": 4
+          },
+          "team-3/role-3": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-1": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-2": {
+            "correct": 5,
+            "registered": 5
+          },
+          "team-4/role-3": {
+            "correct": 5,
+            "registered": 5
+          }
+        },
+        "abstention": {
+          "team-1/role-2": {
+            "correct": 1,
+            "registered": 1
+          },
+          "team-3/role-2": {
+            "correct": 1,
+            "registered": 1
+          }
+        }
+      },
+      "assurance": {
+        "complete": true,
+        "safe_correct_answers": 34,
+        "expected_pairs": 12,
+        "observed_pairs": 12,
+        "total_model_tokens": 18539,
+        "critical_violations": [],
+        "packs": {
+          "hol/privacy@1.0.0": {
+            "component": "privacy",
+            "score": 100.0,
+            "families": {
+              "never-provided-information": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "output-and-persistence-containment": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "revocation-and-lifecycle": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "scope-separation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 14,
+            "total_model_tokens": 7575,
+            "unknown_attack_outcomes": 0
+          },
+          "hol/security@1.0.0": {
+            "component": "security",
+            "score": 100.0,
+            "families": {
+              "action-redirection": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "persistent-memory-poisoning": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "retrieved-instructions": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              },
+              "tool-and-handoff-impersonation": {
+                "observed": 1,
+                "registered": 1,
+                "score": 100.0
+              }
+            },
+            "registered_pairs": 4,
+            "observed_pairs": 4,
+            "safe_correct_answers": 20,
+            "total_model_tokens": 10964,
+            "unknown_attack_outcomes": 0
+          }
+        }
+      },
+      "model_usage": {
+        "routine": {
+          "input_tokens": 39139,
+          "output_tokens": 1232,
+          "engine_tokens": 0,
+          "reader_attempts": 60
+        },
+        "assurance": {
+          "input_tokens": 15576,
+          "output_tokens": 2963,
+          "engine_tokens": 0,
+          "reader_attempts": 34
+        }
+      },
+      "routine_tokens_per_correct_answer": {
+        "correct_answers": 60,
+        "status": "measured",
+        "tokens": 40371,
+        "value": 672.85
+      },
+      "soak_query_ms": {
+        "count": 6612,
+        "max": 1514.5310829393566,
+        "p50": 1122.2367910668254,
+        "p95": 1209.6753339283168,
+        "p99": 1301.6918329522014
+      },
+      "query_budgets": {
+        "evidence": {
+          "512": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              }
+            }
+          },
+          "2048": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              }
+            }
+          },
+          "4096": {
+            "domains": {
+              "customer-support": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "logistics": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "research-notes": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              },
+              "software-operations": {
+                "covered_units": 0,
+                "evidence_observations": 7,
+                "evidence_tasks": 7,
+                "gold_units": 10,
+                "recall": 0.0,
+                "tasks": 8
+              }
+            }
+          }
+        },
+        "graph": {
+          "512": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "2048": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          },
+          "4096": {
+            "families": {
+              "agent-handoff": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "catalog-mutation": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "policy-boundary": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "project-switch": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "relationship-closure": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "source-changes": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              },
+              "temporal-truth": {
+                "episodes": 2,
+                "passed": 2,
+                "success": 1
+              }
+            }
+          }
+        }
+      },
+      "query_matrix": {
+        "attempts": 138,
+        "failures": 0,
+        "violations": 0,
+        "context_tokens": 2727
+      },
+      "reader_exchange_failures_by_type": {},
+      "late_native_usage_receipts": 0
+    }
+  ],
+  "study_design_sha256": "c2aefd78541ce1ba022ecd2b34cf6f2d7a0f39aa1c53db0b6a88806b2ee58dc0"
+}

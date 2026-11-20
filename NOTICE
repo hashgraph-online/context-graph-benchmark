@@ -1,0 +1,7 @@
+Context Graph Benchmark
+
+The evaluation design draws on the CIGAR project. The Python token counter uses
+the o200k pretokenization expression from openai/tiktoken 0.12.0, distributed
+under the MIT license. See third-party/tiktoken-LICENSE in the source or
+cgb/data/licenses/tiktoken-LICENSE in the wheel. Vocabulary data is acquired
+separately. Engine libraries, workers and model weights are separate distributions.

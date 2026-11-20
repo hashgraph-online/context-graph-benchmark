@@ -1,0 +1,25 @@
+name: Engine integration
+description: Add or improve a context-engine adapter
+body:
+  - type: input
+    id: engine
+    attributes:
+      label: Engine, version and official source
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Native capabilities and adapter composition
+      description: Declare reference filtering, retrieval, packing, model calls, and unsupported lifecycle features.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Reproduction and evidence
+      description: Include exact profiles, artifacts, failures and replay commands. Do not include secrets or private context.
+  - type: input
+    id: affiliation
+    attributes:
+      label: Affiliation or conflict of interest

@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":["update","delete","set_scope","handoff"],"command":["{python}","-m","cgb.adapters","--engine","recent-window"],"configuration":"recent-window.v1","deployment":"local","engine":"recent-window","id":"recent-window","schema":"cgb.adapter-descriptor.v1","version":"1"}

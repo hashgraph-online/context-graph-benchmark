@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Cite the exact repository revision, suite, adapter and scoring-policy identities used in your study."
+title: "Context Graph Benchmark"
+type: software
+version: 0.1.0
+license: Apache-2.0
+authors:
+  - name: "HOL contributors"
+abstract: "An engine-agnostic SDK for measuring context retrieval, graph behavior, agent workflows and resource costs."

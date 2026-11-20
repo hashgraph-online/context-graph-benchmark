@@ -1,0 +1,65 @@
+name: Verify published release
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.14'
+      - name: Download release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/cgb-release"
+      - name: Verify inventory, reference data and installed distribution
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python -m pip install --only-binary=:all: --require-hashes -r requirements/platform.lock
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          import tomllib
+
+          directory = Path(os.environ["RUNNER_TEMP"]) / "cgb-release"
+          version = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
+          assert os.environ["RELEASE_TAG"] == "v" + version, "tag and package version differ"
+          wheel = directory / f"context_graph_benchmark-{version}-py3-none-any.whl"
+          sdist = directory / f"context_graph_benchmark-{version}.tar.gz"
+          assert wheel.is_file() and sdist.is_file(), "release distributions are missing"
+          lines = []
+          for asset in sorted(directory.iterdir()):
+              assert asset.is_file() and not asset.is_symlink()
+              if asset.name != "SHA256SUMS":
+                  with asset.open("rb") as stream:
+                      checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                  lines.append(f"{checksum}  {asset.name}\n")
+          assert (directory / "SHA256SUMS").read_text() == "".join(lines), "release inventory or checksum differs"
+          for name, source in [("reference-study-result.json", "src/cgb/data/reference-study.json"),
+                               ("reference-study-provenance.json", "src/cgb/data/reference-study-provenance.json"),
+                               ("reference-study-design.json", "src/cgb/data/reference-study-design.json"),
+                               ("reference-scorecard.md", "docs/reference-study.md")]:
+              assert (directory / name).read_bytes() == Path(source).read_bytes(), name
+          dashboard = directory / f"context-graph-benchmark-{version}-dashboard.html"
+          assert dashboard.is_file() and b"window.CGB_PLATFORM_SNAPSHOT=" in dashboard.read_bytes()
+          subprocess.run([sys.executable, "-m", "pip", "install", "--no-deps", "--no-index", str(wheel)], check=True)
+          import cgb
+          from importlib.resources import files
+          assert cgb.__version__ == version
+          assert files("cgb").joinpath("data/reference-study.json").read_bytes() == (directory / "reference-study-result.json").read_bytes()
+          from cgb.reference import verify
+          verify(result_path=directory / "reference-study-result.json",
+                 receipt_path=directory / "reference-study-provenance.json",
+                 design_path=directory / "reference-study-design.json")
+          print(f"Verified {len(lines)} assets and installed context-graph-benchmark {version}.")
+          PY

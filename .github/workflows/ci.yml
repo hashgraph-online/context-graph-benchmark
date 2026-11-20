@@ -1,0 +1,77 @@
+name: Benchmark contracts
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      retain_packages:
+        description: Keep a copy of this build in Actions artifact storage for seven days
+        required: false
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: benchmark-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Build distributions and install the wheel
+        run: |
+          python -m pip install --only-binary=:all: --require-hashes -r requirements/platform.lock
+          python -m hatchling build
+          python -m pip install --no-index --no-deps dist/*.whl
+          python -c "import cgb, importlib.metadata; assert cgb.__version__ == importlib.metadata.version('context-graph-benchmark')"
+      - name: Acquire verified tokenizer explicitly
+        run: cgb tokenizer prepare --output .cgb/tokenizer
+      - name: Validate portable fixture and publication inventory
+        run: |
+          python scripts/make_portable_fixture.py --check
+          python scripts/check_publication.py
+          cgb reference verify
+      - name: Test contracts, arithmetic, process failures and replay
+        run: python -m unittest discover -s tests -v
+      - name: Validate data-only community pack and profile metadata
+        run: |
+          cgb test-pack list --root .
+          cgb test-pack validate test-packs/instruction-boundary/0.1.0/pack.json
+          cgb test-pack conformance test-packs/instruction-boundary/0.1.0/pack.json
+          cgb overall policy --id cgb-balanced-security-privacy.v3
+          cgb overall policy --id cgb-balanced-security-privacy-24h.v2
+      - name: Execute and replay smoke comparison
+        run: |
+          cgb run --suite suites/smoke-v1.json --adapter adapters/bm25.json adapters/empty.json --tokenizer .cgb/tokenizer --output runs/ci-smoke
+          cgb score --run runs/ci-smoke --labels datasets/synthetic/smoke-labels.json --output reports/ci-smoke
+          cgb replay --run runs/ci-smoke --report reports/ci-smoke
+          cgb dashboard export --root . --output .cache/ci-platform.html
+      - name: Rebuild the wheel from the source archive and record both checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip wheel --no-cache-dir --no-deps --no-index --no-build-isolation \
+            --wheel-dir "$RUNNER_TEMP/cgb-from-sdist" dist/*.tar.gz
+          for wheel in dist/*.whl; do
+            cmp "$wheel" "$RUNNER_TEMP/cgb-from-sdist/${wheel##*/}"
+          done
+          shasum -a 256 dist/*.whl dist/*.tar.gz | tee "$RUNNER_TEMP/cgb-distributions.sha256"
+          cat "$RUNNER_TEMP/cgb-distributions.sha256" >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain requested distributions in Actions storage
+        if: github.event_name == 'workflow_dispatch' && inputs.retain_packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: package-${{ matrix.os }}-py${{ matrix.python }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,1 @@
+{"budgets":[512,2048,4096],"domains":["smoke"],"evidence_class":"smoke","families":[],"id":"smoke-v1","input_profile":"documents","mode":"evidence","schema":"cgb.suite.v1","workload":"../datasets/synthetic/smoke-workload.json"}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="referrer" content="no-referrer">
+<!--CONTROL-->
+<title>HOL: Context Graph Benchmark</title>
+<link rel="stylesheet" href="/platform.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sidebar">
+  <a class="brand" href="#results" aria-label="HOL Context Graph Benchmark home"><span class="hol">HOL<span class="brand-dot">.</span></span><span class="brand-title">Context Graph<br>Benchmark</span></a>
+  <div class="workspace-label"><span class="status-dot"></span> Development workspace</div>
+  <nav aria-label="Platform navigation">
+    <a href="#results" data-view="results"><span aria-hidden="true">◫</span> Results</a>
+    <a href="#studio" data-view="studio"><span aria-hidden="true">▷</span> Run Studio</a>
+    <a href="#engines" data-view="engines"><span aria-hidden="true">⬡</span> Engines</a>
+    <a href="#methodology" data-view="methodology"><span aria-hidden="true">◎</span> How it works</a>
+  </nav>
+  <div class="sidebar-bottom"><p id="platform-version" class="version">Apache-2.0</p></div>
+</aside>
+<div class="page">
+  <header class="topbar"><div class="breadcrumb">HOL <span>/</span> Context Graph Benchmark</div><div class="topbar-right"><span id="connection" class="connection" role="status">Connecting…</span><button id="refresh" class="icon-button" aria-label="Refresh results">↻</button></div></header>
+  <main id="main">
+    <div id="global-error" class="notice error" role="alert" hidden></div>
+    <section id="view-results" class="view" aria-labelledby="results-heading">
+      <div class="page-heading"><div><h1 id="results-heading" tabindex="-1">Benchmark results</h1><p class="lede">Compare the information agents receive, how safely it changes,<br class="wide-only"> and what it costs to reach a correct answer.</p></div><a href="#studio" class="button primary">Run a comparison <span aria-hidden="true">↗</span></a></div>
+      <div class="notice disclosure"><span class="notice-icon" aria-hidden="true">i</span><div>The reference scores use public development fixtures. HOL maintains the benchmark and develops CIGAR. Independent reproduction is planned for 1.0.0.</div><a href="#methodology">Read the method →</a></div>
+      <section id="reference-study" hidden aria-labelledby="reference-heading">
+        <div class="section-heading"><h2 id="reference-heading">Reference study scores</h2></div>
+        <div id="reference-content"></div>
+      </section>
+      <div id="platform-kpis" class="kpi-grid"></div>
+      <p id="current-policy-note" class="field-help"></p>
+      <section id="recorded-overall" hidden aria-label="Recorded overall submissions">
+      <div class="section-heading"><div><h2>Overall benchmark scores</h2></div><label class="select-label">Submission<select id="overall-select" aria-label="Select overall submission"></select></label></div>
+      <div id="overall-content"></div>
+      </section>
+      <div class="section-heading"><div><h2>Comparison results</h2></div><label class="select-label">Run<select id="comparison-select" aria-label="Select comparison run"></select></label></div>
+      <div id="comparison-content"></div>
+      <div class="section-heading"><div><h2>Security &amp; Privacy</h2></div><label class="select-label">Model / run<select id="assurance-select" aria-label="Select Security and Privacy run"></select></label></div>
+      <div id="assurance-content"></div>
+      <div class="section-heading"><div><h2>Agent soak tests</h2></div><a href="#studio" class="text-link">Configure a soak →</a></div>
+      <div class="duration-grid"><article class="duration-card"><span class="duration-icon" aria-hidden="true">◷</span><div><h3>1 hour</h3><p>Rapid endurance comparison</p></div><span class="tag">12 agent lanes</span></article><article class="duration-card"><span class="duration-icon" aria-hidden="true">◴</span><div><h3>24 hours</h3><p>Sustained endurance comparison</p></div><span class="tag">12 agent lanes</span></article></div>
+      <div id="soak-content"></div>
+      <section class="panel policy-overview" aria-labelledby="current-policy-heading">
+        <div class="section-heading compact"><div><h2 id="current-policy-heading">Overall score weights</h2><p id="policy-summary"></p></div><a href="#methodology" class="text-link">Explore the calculation →</a></div>
+        <div id="policy-allocation" class="policy-allocation" role="img" aria-label="Overall score allocation"></div>
+        <div id="policy-components" class="policy-components"></div>
+        <p id="policy-identity" class="field-help mono"></p>
+        <p class="field-help">A required test without evidence stays unmeasured. Confirmed critical violations block the headline score. Each run identifies its scoring policy.</p>
+      </section>
+      <div class="section-heading"><div><h2>Workspace runs</h2></div></div>
+      <div id="history" class="panel"></div>
+    </section>
+    <section id="view-studio" class="view" hidden aria-labelledby="studio-heading">
+      <div class="page-heading"><div><h1 id="studio-heading" tabindex="-1">Run Studio</h1><p class="lede">Select the engines, workload and execution settings.</p></div><span class="pill">Local execution only</span></div>
+      <form id="run-form">
+        <div class="studio-layout"><div class="studio-main">
+          <section class="panel form-section"><div class="step-title"><h2>Select engines</h2></div><p>Choose implementations to compare. Their adapter composition is part of the measured system.</p><div id="engine-options" class="engine-options"></div><a href="#engines" class="text-link">Setup and capability details →</a></section>
+          <section class="panel form-section"><div class="step-title"><h2>Choose a test</h2></div><div class="test-options"><label class="test-option"><input type="radio" name="track" value="comparison" checked><span><strong>Retrieval + graph behavior</strong><small>Fixed budgets · independent labels · replayable artifacts</small></span><span class="tag">Minutes</span></label><label class="test-option"><input type="radio" name="track" value="assurance"><span><strong>Security &amp; Privacy packs</strong><small>Clean/attack pairs · synthetic secrets · mock actions · offline grading</small></span><span class="tag">AI reader</span></label><label class="test-option"><input type="radio" name="track" value="soak"><span><strong>Multi-agent soak</strong><small>12 persistent lanes · optional assurance events</small></span><span class="tag">1h / 24h</span></label><label class="test-option"><input type="radio" name="track" value="study"><span><strong>Complete benchmark study</strong><small>Retrieval + graph + assurance soak · one prospective cohort</small></span><span class="tag">9 factors</span></label></div>
+          <div id="comparison-settings" class="settings"><label>Test profiles<select id="profiles"><option value="both">Evidence retrieval + seven graph families</option><option value="graph">Seven graph families</option><option value="evidence">Evidence retrieval · four fictional domains</option></select></label><div class="field-row"><label>Budget sweep<select id="budgets"><option value="512,2048,4096">512 / 2,048 / 4,096 tokens</option><option value="512">512 tokens (partial profile)</option></select></label><label>Replicates<select id="replicates"><option value="1">1 — development pass</option><option value="3">3 — repeatability check</option><option value="5">5 — repeatability check</option></select></label></div></div>
+          <div id="soak-settings" class="settings" hidden><label>Duration per engine<select id="duration"><option value="1">1 hour · registered endurance schedule</option><option value="24">24 hours · registered endurance schedule</option><option value="pilot">15 seconds · diagnostic pilot only</option></select></label><label id="overlay-control"><input id="assurance-overlay" type="checkbox"> Add Security/Privacy events every 5 minutes (separate profile)</label><p class="field-help">Each engine runs for the full duration in sequence. Assurance events use part of that time. Missed slots count as failures.</p></div>
+          <div id="assurance-settings" class="settings" hidden><h3>Versioned execution packs</h3><div id="pack-options"></div><p class="field-help">Bundled cases are public development data. Community packs run experimentally and cannot assign themselves core score weight.</p></div>
+          <div id="reader-settings" class="settings" hidden><label>Local AI reader<select id="reader"><option value="">No reader · context metrics only</option></select></label><label>Reference for token savings<select id="baseline"></select></label><label>Adapter isolation<select id="isolation"><option value="auto">Automatic · probed OS confinement</option><option value="macos">macOS sandbox-exec</option><option value="bubblewrap">Linux bubblewrap</option><option value="process">Process only · diagnostic, cannot qualify full score</option></select></label><p class="field-help">Security/Privacy and complete studies require a fixed reader. Use bound MLX, Ollama or a numeric loopback OpenAI-compatible endpoint. There are no implicit model downloads or paid provider calls.</p></div>
+          </section>
+          <section class="panel form-section"><div class="step-title"><h2>Name &amp; launch</h2></div><label>Run name<input id="run-name" maxlength="120" placeholder="e.g. NetworkX baseline"></label><div class="launch-row"><p>The run records the selected engine versions and settings.</p><button id="launch" class="button primary" type="submit">Start benchmark <span aria-hidden="true">▷</span></button></div><p id="launch-message" class="field-help" role="status"></p></section>
+        </div><aside class="panel run-summary"><h3>Registered inputs</h3><ul class="check-list"><li>Source facts and task labels</li><li>Context budgets and token counter</li><li>Engine + adapter artifact identities</li><li>Reader, prompt and decoding settings</li><li>First attempts and failure costs</li></ul><div class="summary-rule"></div><h3>Run outputs</h3><p>Component scores, latency, safety violations, original logs and replay commands. Full model metrics require an explicit reader.</p></aside></div>
+      </form>
+    </section>
+    <section id="view-engines" class="view" hidden aria-labelledby="engines-heading">
+      <div class="page-heading"><div><h1 id="engines-heading" tabindex="-1">Engine integrations</h1><p class="lede">Compare the operations each engine and its adapter provide.</p></div></div>
+      <div id="engine-catalog" class="catalog-grid"></div>
+      <section class="panel onboarding"><div><h2>Register an adapter</h2><p>Implement describe, ingest, query and close. Declare optional mutations and lifecycle features. Return actual text and source spans, then pass conformance checks. The evaluator owns the labels and scoring.</p></div><div class="code-box"><code>cgb platform register --root . --id your-engine \
+  --descriptor path/to/adapter.json</code><small>Read docs/adapter-contract.md and CONTRIBUTING.md</small></div></section>
+      <section class="panel"><h2>Compare matching capability profiles</h2><div id="capability-matrix" class="table-wrap"></div><p class="field-help">The table identifies work performed by each adapter.</p></section>
+      <section class="panel"><h2>Test pack catalogue</h2><div id="pack-catalog"></div><div class="code-box"><code>cgb test-pack scaffold --id your-org/boundary --output test-packs/boundary
+cgb test-pack validate test-packs/boundary/pack.json
+cgb test-pack conformance test-packs/boundary/pack.json
+cgb test-pack register --root . test-packs/boundary/pack.json</code></div><p class="field-help">Discovery reads JSON without importing contributor code. New scenarios use reviewed driver and grader IDs. New executable adapters require source review and conformance tests. Read docs/test-pack-spec.md and GOVERNANCE.md for contribution and promotion rules.</p></section>
+    </section>
+    <section id="view-methodology" class="view" hidden aria-labelledby="methodology-heading">
+      <div class="page-heading"><div><h1 id="methodology-heading" tabindex="-1">Scoring methodology</h1><p class="lede">The evaluator scores the evidence an engine returns, its behavior as the graph changes and the cost of correct answers.</p></div></div>
+      <section class="panel method-pipeline"><div class="section-heading compact"><div><h2>How a run is scored</h2></div></div><div id="pipeline" class="pipeline" role="group" aria-label="Benchmark orchestration steps"></div><div id="pipeline-detail" class="pipeline-detail" aria-live="polite"></div></section>
+      <div class="method-grid"><section class="panel"><h2>Graph dependencies</h2><p>A deployment record may require its artifact, rollback plan and policy. A fast answer that loses a required dependency fails the task.</p><div id="context-graph" class="graph-education"></div><div id="graph-controls" class="segmented" aria-label="Graph scenario"></div><p id="graph-explanation" class="field-help" aria-live="polite"></p></section><section class="panel"><h2>Model tokens per safe correct answer</h2><div class="formula-card"><span>Reader and engine tokens across both tracks</span><div></div><strong>Fresh, safe correct answers</strong></div><p>The numerator includes input and output tokens from every dispatched first attempt, including incorrect answers.</p><div class="metric-definition"><strong>Tokens saved per correct answer</strong><p>Reference tokens per correct answer − candidate tokens per correct answer, using the same reader and workload. Negative means more tokens were used. A zero correct-answer denominator stays undefined.</p></div></section></div>
+      <section class="panel score-explainer"><div class="section-heading compact"><div><h2 id="score-policy-heading">Weighted score calculator</h2><p>Each dimension contributes up to its share of 100 points. Missing measurements withhold the total. A failed mandatory check blocks it.</p></div><span class="tag">Example inputs</span></div><div class="score-layout"><div><div id="weight-ring" class="weight-ring"><div><strong id="token-weight">—</strong><span>token efficiency</span><small id="reliability-weight"></small></div></div><div id="weights" class="weights"></div></div><div><div class="demo-score"><span>Illustrative overall score</span><strong id="demo-score">—</strong><small id="demo-status" role="status">Move a component to see its effect.</small></div><div id="score-sliders" class="score-sliders"></div><div class="demo-gates"><label><input id="demo-missing" type="checkbox">Leave a required test unmeasured</label><label><input id="demo-violation" type="checkbox">Simulate a confirmed critical violation</label></div><div id="score-equation" class="equation"></div></div></div></section>
+      <section class="panel" aria-labelledby="assurance-heading"><h2 id="assurance-heading">Security and privacy scoring</h2><p>Every attack is paired with a clean task. Four Security families test source instructions, role impersonation, persistent memory poisoning and action redirection. Four Privacy families test source separation, revocation after warm access, never-provided information and permitted-use/output boundaries.</p><div id="assurance-requirements" class="assurance-requirements"></div><div class="boundary-flow" role="img" aria-label="Untrusted sources pass through context selection and an agent; observed answers and tools are checked against isolated evaluator labels"><span>Untrusted sources</span><i aria-hidden="true">→</i><span>Engine + adapter</span><i aria-hidden="true">→</i><span>Fixed agent</span><i aria-hidden="true">→</i><span>Mock tools</span><i aria-hidden="true">→</i><span>Offline checks</span></div><p class="field-help">A pair earns credit only when both tasks succeed safely. Cases are averaged within each family, then the four families equally. Unknown attacks contribute to the reported lower/upper bound. The evaluator checks authorized access and keeps restricted targets outside engine and model inputs. It grades the raw evidence before redacting the display.</p></section>
+      <div class="method-grid"><section class="panel"><h2>Endurance schedule</h2><div class="soak-timeline"><span>12 lanes</span><i></i><span>Updates</span><i></i><span>Scope checks</span><i></i><span>Restarts</span></div><p>Four teams each use a planner, operator and reviewer. Public facts change every minute and queries run every five seconds. Access checks and scheduled process restarts test sustained behavior.</p><p>Optional fixed-model handoffs measure correct workflows and observed tokens. Missed slots stay in the denominator. A short pilot never qualifies as a one-hour or day-long result.</p></section><section class="panel"><h2>Comparing study results</h2><ul class="check-list"><li>Version and hash the method before execution.</li><li>Keep unsupported operations and failures visible.</li><li>Replay sealed data without executing engine code.</li><li>Separate public tuning from held-out evaluation.</li><li>Publish affiliations and seek external reproduction.</li></ul><p class="field-help">Successive soak cycles reuse a fixed workload. Interpret them as observations from one run on one host.</p></section></div>
+    </section>
+  </main>
+  <footer><span>HOL: Context Graph Benchmark</span><span>Apache-2.0</span></footer>
+</div>
+<aside id="active-run" class="active-run" aria-live="polite" hidden></aside>
+<dialog id="detail-dialog"><div class="dialog-heading"><h2 id="detail-title">Run details</h2><button id="close-dialog" class="icon-button" aria-label="Close details">×</button></div><div id="detail-body"></div></dialog>
+<script src="/platform.js" defer></script>
+</body>
+</html>

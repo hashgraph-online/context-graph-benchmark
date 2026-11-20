@@ -1,0 +1,1 @@
+{"schema":"cgb.portable-soak-profile.v1","id":"portable-agent-24h.v1","seconds_per_engine":86400,"agents":12,"cadence_seconds":5,"mutation_seconds":60,"control_seconds":120,"restart_seconds":900,"model_interval_seconds":180,"budget":1024,"seed":41,"simulation":"four-team-release-handoff.v1","evidence_class":"public-development"}

@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":["update","delete","set_scope","handoff"],"command":["{python}","-m","cgb.adapters","--engine","networkx"],"configuration":"bm25-native-graph.v1","deployment":"local","engine":"networkx","id":"networkx","schema":"cgb.adapter-descriptor.v1","version":"runtime-described"}

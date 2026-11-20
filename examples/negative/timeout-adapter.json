@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":[],"command":["{python}","-c","import sys,time;sys.stdout.write(\"partial\");sys.stdout.flush();time.sleep(60)"],"configuration":"deliberate-timeout.v1","deployment":"local","engine":"timeout-fixture","id":"timeout-fixture","schema":"cgb.adapter-descriptor.v1","version":"1"}

@@ -1,0 +1,1 @@
+{"artifacts":[],"capabilities":["update","delete","set_scope","handoff"],"command":["{python}","-m","cgb.adapters","--engine","bm25"],"configuration":"bm25.v1","deployment":"local","engine":"bm25","id":"bm25","schema":"cgb.adapter-descriptor.v1","version":"1"}

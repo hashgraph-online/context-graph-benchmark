@@ -1,0 +1,2 @@
+# Optional Apple Silicon runtime. Never install into historical evaluator environments.
+mlx-lm==0.32.2

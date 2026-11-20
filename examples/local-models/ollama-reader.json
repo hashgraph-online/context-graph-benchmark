@@ -1,0 +1,11 @@
+{
+  "schema": "cgb.local-reader.v1",
+  "id": "your-local-ollama-model",
+  "backend": "ollama",
+  "model": "REPLACE_WITH_INSTALLED_LOCAL_MODEL_TAG",
+  "revision": "REPLACE_WITH_LOCAL_MODEL_DIGEST",
+  "base_url": "http://127.0.0.1:11434",
+  "context_window": 32768,
+  "settings": {"temperature": 0, "top_p": 1, "max_tokens": 128, "enable_thinking": false},
+  "artifacts": []
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "cgb.local-reader.v1",
+  "id": "your-local-compatible-model",
+  "backend": "openai-compatible",
+  "model": "REPLACE_WITH_LOCAL_SERVER_MODEL_ID",
+  "revision": "REPLACE_WITH_LOCAL_MODEL_REVISION",
+  "base_url": "http://127.0.0.1:1234/v1",
+  "context_window": 32768,
+  "settings": {"temperature": 0, "top_p": 1, "max_tokens": 128, "enable_thinking": false},
+  "artifacts": []
+}
